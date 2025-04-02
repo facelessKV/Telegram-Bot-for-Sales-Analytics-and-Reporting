@@ -1,178 +1,201 @@
-# Инструкция по установке и запуску Telegram-бота для аналитики данных
+ChatGPT сказал:
+📊 Telegram Bot for Sales Analytics and Reporting
 
-## Описание
-Этот Telegram-бот предназначен для сбора и анализа данных (статистика продаж, активность пользователей) и генерации отчетов. Бот работает с базой данных SQLite и может создавать графики и CSV-файлы.
+Want to analyze sales and receive reports directly in Telegram? This bot will generate detailed analytics and sales reports for you!
+The bot collects sales data, generates reports, and presents them in a convenient format.
 
-## Требования
-- Python 3.8 или 3.9 (НЕ 3.11 или 3.12, так как с этими версиями могут возникнуть проблемы с зависимостями)
-- Доступ к Интернету
-- Telegram-аккаунт
+✅ What does it do?
 
-## Получение токена для бота
-Перед установкой и запуском бота вам необходимо получить API-токен. Для этого:
+• 📊 Collects and analyzes sales data
+• 📈 Generates sales reports for a specified period
+• 💼 Exports reports in CSV format
+• 📂 Stores statistics in a database for further analysis
 
-1. Откройте Telegram и найдите бота @BotFather
-2. Отправьте ему команду `/newbot`
-3. Следуйте инструкциям BotFather: укажите имя бота и его username (должен заканчиваться на "bot")
-4. После создания бота BotFather пришлет вам токен API - длинную строку вида `123456789:ABCDefGhIJKlmNoPQRsTUVwxyZ`
-5. Сохраните этот токен - он понадобится при настройке бота
+🔧 Functionality
 
-## Установка и запуск на Windows
+✅ Automatic report generation based on criteria (e.g., by product, by time)
+✅ Export reports in an easy-to-analyze format
+✅ Simple configuration of report parameters
 
-### Шаг 1: Установка Python
-1. Скачайте Python 3.9 с официального сайта: https://www.python.org/downloads/release/python-3913/
-   - Прокрутите вниз и выберите "Windows installer (64-bit)" или "Windows installer (32-bit)" в зависимости от вашей системы
-2. Запустите загруженный файл
-3. **ВАЖНО**: Установите отметку "Add Python 3.9 to PATH" перед установкой
-4. Нажмите "Install Now"
+📩 Want to analyze your sales and get reports effortlessly?
 
-### Шаг 2: Скачивание и подготовка файлов бота
-1. Создайте на компьютере папку для бота, например, `C:\TelegramBot`
-2. Скопируйте файл бота `main.py` в эту папку
+Contact me on Telegram, and I'll help you set up this bot for your business! 🚀
 
-### Шаг 3: Открытие командной строки
-1. Нажмите на клавиатуре клавиши `Win + R`
-2. Введите `cmd` и нажмите Enter
-3. В открывшейся командной строке перейдите в созданную папку с ботом:
-```
+# Instructions for installing and launching a Telegram bot for data analytics
+
+## Description
+This Telegram bot is designed to collect and analyze data (sales statistics, user activity) and generate reports. The bot works with an SQLite database and can create graphs and CSV files.
+
+## Requirements
+- Python 3.8 or 3.9 (NOT 3.11 or 3.12, as these versions may have dependency issues)
+- Internet access
+- Telegram account
+
+## Getting a token for a bot
+Before installing and launching the bot, you need to get an API token. For this:
+
+1. Open Telegram and find the bot @BotFather
+2. Send him the command `/newbot`
+3. Follow the instructions of BotFather: specify the name of the bot and its username (must end with "bot")
+4. After creating the bot, BotFather will send you an API token - a long string like `123456789:ABCDefGhIJKlmNoPQRsTUVwxyZ`
+5. Save this token - you will need it when setting up the bot.
+
+## Install and run on Windows
+
+### Step 1: Install Python
+1. Download Python 3.9 from the official website: https://www.python.org/downloads/release/python-3913/
+   - Scroll down and select "Windows installer (64-bit)" or "Windows installer (32-bit)" depending on your system
+2. Run the downloaded file
+3. **IMPORTANT**: Check the box "Add Python 3.9 to PATH" before installing
+4. Click "Install Now"
+
+### Step 2: Download and prepare the bot files
+1. Create a folder for the bot on your computer, for example, `C:\TelegramBot `
+2. Copy the bot file `main.py ` to this folder
+
+### Step 3: Open the Command Prompt
+1. Press the `Win + R` keys on the keyboard
+2. Type `cmd` and press Enter
+3. In the command prompt that opens, navigate to the created folder with the bot:
+``
 cd C:\TelegramBot
 ```
 
-### Шаг 4: Создание виртуального окружения и установка зависимостей
-1. Создайте виртуальное окружение, введя в командной строке:
-```
+### Step 4: Create a virtual environment and install dependencies
+1. Create a virtual environment by typing in the command line:
+``
 python -m venv venv
 ```
 
-2. Активируйте виртуальное окружение:
+2. Activate the virtual environment:
 ```
 venv\Scripts\activate
 ```
 
-3. Установите необходимые библиотеки:
-```
+3. Install the necessary libraries:
+``
 pip install aiogram==3.0.0 pandas matplotlib
-```
+``
 
-### Шаг 5: Изменение токена в файле
-1. Откройте файл `main.py` любым текстовым редактором (например, Notepad)
-2. Найдите строку: `API_TOKEN = 'ВАШ_ТОКЕН_API'`
-3. Замените 'ВАШ_ТОКЕН_API' на токен, полученный от BotFather (не удаляя кавычки)
-4. Сохраните файл
+### Step 5: Change the token in the file
+1. Open the file `main.py ` using any text editor (for example, Notepad)
+2. Find the string: `API_TOKEN = 'YOUR_TOKEN_ARI'
+3. Replace 'YOUR_TOKEN_ARI' with the token received from BotFather (without removing the quotes)
+4. Save the file
 
-### Шаг 6: Запуск бота
-1. В командной строке (с активированным виртуальным окружением) введите:
-```
+### Step 6: Launch the Bot
+1. At the command prompt (with the virtual environment enabled), type:
+``
 python main.py
-```
-2. Если все установлено правильно, вы увидите сообщение о запуске бота
-3. Теперь можете открыть Telegram и начать диалог с вашим ботом
+``
+2. If everything is installed correctly, you will see a message about the launch of the bot.
+3. Now you can open Telegram and start a dialogue with your bot.
 
-### Остановка бота
-Чтобы остановить работу бота, в командной строке нажмите сочетание клавиш `Ctrl+C`
+### Stopping the bot
+To stop the bot, press the keyboard shortcut `Ctrl+C` in the command prompt.
 
-## Установка и запуск на Linux
+## Install and run on Linux
 
-### Шаг 1: Установка Python и необходимых инструментов
-Откройте терминал и выполните следующие команды:
+### Step 1: Install Python and the necessary tools
+Open a terminal and run the following commands:
 
 ```
 sudo apt update
 sudo apt install python3.9 python3.9-venv python3-pip git
 ```
 
-### Шаг 2: Создание папки для бота и загрузка файлов
-```
-mkdir ~/telegrambot
-cd ~/telegrambot
+### Step 2: Create a folder for the bot and upload the files
+``
+mkdir~/telegrambot
+cd~/telegrambot
 ```
 
-Скопируйте файл бота `main.py` в эту папку.
+Copy the bot file `main.py `to this folder.
 
-### Шаг 3: Создание виртуального окружения и установка зависимостей
+### Step 3: Create a virtual environment and install dependencies
 ```
 python3.9 -m venv venv
 source venv/bin/activate
 pip install aiogram==3.0.0 pandas matplotlib
 ```
 
-### Шаг 4: Изменение токена в файле
-1. Откройте файл main.py в текстовом редакторе:
-```
+### Step 4: Change the token in the file
+1. Open the main file.py in the text editor:
+``
 nano main.py
 ```
-2. Найдите строку: `API_TOKEN = 'ВАШ_ТОКЕН_API'`
-3. Замените 'ВАШ_ТОКЕН_API' на токен, полученный от BotFather (не удаляя кавычки)
-4. Сохраните файл, нажав `Ctrl+O`, затем `Enter`, затем `Ctrl+X`
+2. Find the line: `API_TOKEN = 'YOUR_TOKEN_ARI'
+3. Replace 'YOUR_TOKEN_ARI' with the token received from BotFather (without removing the quotes)
+4. Save the file by pressing `Ctrl+O`, then `Enter`, then `Ctrl+X`
 
-### Шаг 5: Запуск бота
+### Step 5: Launch the Bot
 ```
 python3 main.py
 ```
 
-### Шаг 6: Настройка автозапуска (опционально)
-Чтобы бот продолжал работать после закрытия терминала, вы можете использовать `screen`:
+### Step 6: Setting up Autorun (optional)
+To keep the bot running after closing the terminal, you can use the `screen`:
 
-1. Установите screen:
+1. Install screen:
 ```
 sudo apt install screen
 ```
 
-2. Создайте новую сессию screen:
+2. Create a new screen session:
 ```
 screen -S telegrambot
 ```
 
-3. Активируйте виртуальное окружение и запустите бота:
+3. Activate the virtual environment and launch the bot:
 ```
 cd ~/telegrambot
 source venv/bin/activate
 python3 main.py
 ```
 
-4. Нажмите `Ctrl+A`, затем `D`, чтобы отсоединиться от сессии (бот продолжит работать)
+4. Press `Ctrl+A', then `D` to disconnect from the session (the bot will continue to work)
 
-5. Чтобы вернуться к сессии с ботом:
-```
+5. To return to the bot session:
+``
 screen -r telegrambot
 ```
 
-## Использование бота
+## Using a bot
 
-После запуска бота вы можете взаимодействовать с ним в Telegram, используя следующие команды:
+After launching the bot, you can interact with it in Telegram using the following commands:
 
-- `/start` - Начало работы, выводит приветственное сообщение и основные команды
-- `/report` - Создание отчета (о продажах или активности пользователей)
-- `/stats` - Просмотр статистики за выбранный период
+- `/start' - Getting started, displays a welcome message and basic commands
+- `/report` - Creating a report (on sales or user activity)
+- `/stats` - Viewing statistics for the selected period
 
-При первом запуске бот автоматически создаст базу данных SQLite и заполнит ее тестовыми данными для демонстрации.
+On the first launch, the bot will automatically create an SQLite database and fill it with test data for demonstration.
 
-## Возможные проблемы и их решение
+## Possible problems and their solutions
 
-### Windows: "Python не является внутренней или внешней командой..."
-- Переустановите Python, обязательно установив флажок "Add Python to PATH"
+### Windows: "Python is not an internal or external command..."
+- Reinstall Python by making sure to check the box "Add Python to PATH"
 
 ### Linux: "Command python3 not found"
-- Попробуйте использовать команду `python3.9` вместо `python3`
+- Try using the command `python3.9` instead of `python3`
 
-### Ошибка установки библиотек
-- Попробуйте обновить pip перед установкой: `pip install --upgrade pip`
-- Если проблема с matplotlib, установите системные зависимости (для Linux):
-  ```
+### Library installation error
+- Try to update pip before installation: `pip install --upgrade pip`
+- If there is a problem with matplotlib, install the system dependencies (for Linux):
+``
   sudo apt-get install python3-dev libfreetype6-dev
   ```
 
-### Ошибка при запуске бота
-- Убедитесь, что верно указан токен API в файле `main.py`
-- Проверьте подключение к интернету
-- Убедитесь, что все библиотеки установлены правильно
+### Error when launching the bot
+- Make sure that the API token is specified correctly in the file `main.py `
+- Check your internet connection
+- Make sure that all libraries are installed correctly
 
-## Дополнительная информация
+## Additional information
 
-Этот бот использует:
-- aiogram 3.0.0 - для взаимодействия с API Telegram
-- pandas - для анализа данных
-- matplotlib - для построения графиков
-- SQLite - для хранения данных
+This bot uses:
+- aiogram 3.0.0 - for interacting with the Telegram API
+- pandas - for data analysis
+- matplotlib - for plotting
+- SQLite - for data storage
 
-Для более подробной информации о структуре и работе бота посмотрите комментарии в коде.
+For more information about the structure and operation of the bot, see the comments in the code.
